@@ -55,21 +55,32 @@ public class PremierLeague {
         for (int week = 0; week < 38; week++){
             Game[] gameWeek = new Game[10];
 
-            boolean validGame = false;
             for (int game = 0; game < 10; game++){
+                gameWeek[0] = new Game(new Club("temp"), new Club("temp2"));
+                int random = (int) (Math.random() * (allGames.size()) - 1) + 1;
+                Game randomGame = allGames.get(random);
+                boolean validGame = false;
                 while (validGame == false){
-                    int random = (int) (Math.random() * allGames.size()) + 1;
-                    Game randomGame = allGames.get(random);
                     for (Game g : gameWeek){
                         if (g != null){
-                            if (g.getHome().equals(randomGame.g))
+                            if (!g.getHome().getName().equals(randomGame.getHome().getName())    &&    !g.getHome().getName().equals(randomGame.getAway().getName())    &&    !g.getAway().getName().equals(randomGame.getHome().getName())    &&     !g.getAway().getName().equals(randomGame.getAway().getName())) {
+                                validGame = true;
+                            }
                         }
                     }
                 }
+                gameWeek[game] = randomGame;
             }
 
-
             fixtures[week] = gameWeek;
+        }
+
+        for (int gameWeek = 0; gameWeek < fixtures.length; gameWeek++){
+            System.out.println("GAMEWEEK " + (gameWeek + 1));
+            for (Game g : fixtures[gameWeek]){
+                System.out.println(g.toString());
+            }
+            System.out.println();
         }
     }
 
