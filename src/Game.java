@@ -5,8 +5,6 @@ public class Game {
     private int awayGoals;
 
     public Game(Club home, Club away){
-        home.playTeamAtHome(away);
-        away.playTeamAway(home);
         this.home = home;
         this.away = away;
         homeGoals = 0;
@@ -46,7 +44,15 @@ public class Game {
     }
 
     public void simulateGame(){
+        homeGoals = (int) (Math.random() * 8);
+        awayGoals = (int) (Math.random() * 8);
 
+    }
+
+    public Club getWinner(){
+        if (homeGoals > awayGoals) return home;
+        if (awayGoals > homeGoals) return away;
+        return null;
     }
 
     public String toString(){

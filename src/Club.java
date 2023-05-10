@@ -6,8 +6,6 @@ public class Club {
     private int wins;
     private int draws;
     private int loses;
-    private ArrayList<Club> teamsPlayedAtHome;
-    private ArrayList<Club> teamsPlayedAway;
 
     public Club(String name){
         this.name = name;
@@ -15,10 +13,7 @@ public class Club {
         wins = 0;
         draws = 0;
         loses = 0;
-        teamsPlayedAtHome = new ArrayList<Club>();
-        teamsPlayedAway = new ArrayList<Club>();
     }
-
 
     // getter and setters:
 
@@ -63,33 +58,8 @@ public class Club {
         this.loses = loses;
     }
 
-    public ArrayList<Club> getTeamsPlayedAtHome() {
-        return teamsPlayedAtHome;
-    }
-
-    public void setTeamsPlayedAtHome(ArrayList<Club> teamsPlayedAtHome) {
-        this.teamsPlayedAtHome = teamsPlayedAtHome;
-    }
-
-    public ArrayList<Club> getTeamsPlayedAway() {
-        return teamsPlayedAway;
-    }
-
-    public void setTeamsPlayedAway(ArrayList<Club> teamsPlayedAway) {
-        this.teamsPlayedAway = teamsPlayedAway;
-    }
-
 
     // methods:
-
-
-    public void playTeamAtHome(Club awayTeam){
-        teamsPlayedAtHome.add(awayTeam);
-    }
-
-    public void playTeamAway(Club homeTeam){
-        teamsPlayedAway.add(homeTeam);
-    }
 
     public void win(){
         points += 3;
