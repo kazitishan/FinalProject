@@ -1,11 +1,13 @@
 import java.util.ArrayList;
 
-public class Club {
+public class Club implements Comparable{
     private String name;
     private int points;
     private int wins;
     private int draws;
     private int loses;
+    private int goalsScored;
+    private int goalsConceded;
 
     public Club(String name){
         this.name = name;
@@ -58,6 +60,17 @@ public class Club {
         this.loses = loses;
     }
 
+    public int getGoalsScored() {
+        return goalsScored;
+    }
+
+    public int getGoalsConceded() {
+        return goalsConceded;
+    }
+
+    public int getGoalDifference(){
+        return goalsScored - goalsConceded;
+    }
 
     // methods:
 
@@ -73,5 +86,13 @@ public class Club {
 
     public void lose(){
         loses++;
+    }
+
+    @Override
+    public int compareTo(Object team) {
+        if (team instanceof Club){
+
+        }
+        return 0;
     }
 }

@@ -54,14 +54,18 @@ public class PremierLeague {
         for (int week = 0; week < 38; week++){
             ArrayList<Club> teamsPlayedThisWeek = new ArrayList<Club>();
             for (int game = 0; game < 10; game++){
-                boolean validGame = false;
-                int num = 0;
-                Game randomGame = new Game(new Club(""), new Club(""));
-                while (validGame == false){
-                    num = (int) (Math.random() * allGames.size());
-                    randomGame = allGames.get(num);
-                    if (teamsPlayedThisWeek.contains(randomGame.getHome()) || teamsPlayedThisWeek.contains(randomGame.getAway()))
+                int num = (int) (Math.random() * allGames.size());;
+                Game randomGame = allGames.get(num);
+                if (teamsPlayedThisWeek.size() > 0){
+                    for (int team = 0; team < teamsPlayedThisWeek.size(); team++){
+                        if (randomGame.contains(teamsPlayedThisWeek.get(team))){
+                            num = (int) (Math.random() * allGames.size());;
+                            randomGame = allGames.get(num);
+                        }
+                    }
                 }
+                teamsPlayedThisWeek.add(randomGame.getHome());
+                teamsPlayedThisWeek.add(randomGame.getAway());
                 fixtures[week][game] = randomGame;
                 allGames.remove(num);
             }
@@ -75,40 +79,29 @@ public class PremierLeague {
             System.out.println();
         }
 
-//        for (int week = 0; week < 38; week++){
-//            Game[] gameWeek = new Game[10];
-//
-//            for (int game = 0; game < 10; game++){
-//                gameWeek[0] = new Game(new Club("temp"), new Club("temp2"));
-//                int random = (int) (Math.random() * (allGames.size()) - 1) + 1;
-//                Game randomGame = allGames.get(random);
-//                boolean validGame = false;
-//                while (validGame == false){
-//                    for (Game g : gameWeek){
-//                        if (g != null){
-//                            if (!g.getHome().getName().equals(randomGame.getHome().getName())    &&    !g.getHome().getName().equals(randomGame.getAway().getName())    &&    !g.getAway().getName().equals(randomGame.getHome().getName())    &&     !g.getAway().getName().equals(randomGame.getAway().getName())) {
-//                                validGame = true;
-//                            }
-//                        }
-//                    }
-//                }
-//                gameWeek[game] = randomGame;
-//            }
-//
-//            fixtures[week] = gameWeek;
-//        }
-//
-//        for (int gameWeek = 0; gameWeek < fixtures.length; gameWeek++){
-//            System.out.println("GAMEWEEK " + (gameWeek + 1));
-//            for (Game g : fixtures[gameWeek]){
-//                System.out.println(g.toString());
-//            }
-//            System.out.println();
-//        }
+        System.out.println(allGames.size());
     }
 
     public void sortTable(){
-
+        while (inOrder() == false){
+            for (int team = 0; team < table.length; team++){
+                Club current;
+            }
+        }
     }
 
+    public boolean inOrder(){
+        for (int team = 0; team < table.length - 1; team++){
+            if (table[team].getPoints() < table[team + 1].getPoints()) return false;
+            if (table[team].getPoints() == table[team + 1].getPoints()){
+                if (table[team].getGoalDifference() < table[team + 1].getGoalDifference()) return false;
+            }
+        }
+        return true;
+    }
+
+    public void swap(int index1, int index2){
+        Club temp = table[index1];
+
+    }
 }

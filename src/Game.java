@@ -58,4 +58,10 @@ public class Game {
     public String toString(){
         return home.getName() + " vs. " + away.getName();
     }
+
+    public boolean contains(Club team){
+        if (team.getName().equals(home.getName())) return true;
+        if (team.getName().equals(away.getName())) return true;
+        return false;
+    }
 }
