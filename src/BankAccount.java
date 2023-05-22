@@ -22,12 +22,12 @@ public class BankAccount {
         this.balance = balance;
     }
 
-    public void betOnGame(double amount, Club winner, Game game){
 
+    public void withdraw(double amount){
+        balance -= amount;
     }
 
-    public void betOnGame(double amount, int homeGoals, int awayGoals, Club winner, Game game){
-        game.simulateGame();
-        //if (game.getWinner() == winner)
+    public void deposit(double amount){
+        balance += amount;
     }
 }

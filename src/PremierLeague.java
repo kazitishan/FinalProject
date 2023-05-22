@@ -5,6 +5,7 @@ public class PremierLeague {
     private Club[] table;
     private Game[][] fixtures;
     private ArrayList<Game> allGames;
+    private int gameWeek;
 
     public PremierLeague(){
 
@@ -48,7 +49,54 @@ public class PremierLeague {
         // using generate fixtures method to make the fixture list
         fixtures = new Game[38][10];
         generateFixtures();
+
+        // making game week
+        gameWeek = 0;
     }
+
+
+
+
+
+
+
+    // getters and setters:
+    public Club[] getTable() {
+        return table;
+    }
+
+    public void setTable(Club[] table) {
+        this.table = table;
+    }
+
+    public Game[][] getFixtures() {
+        return fixtures;
+    }
+
+    public void setFixtures(Game[][] fixtures) {
+        this.fixtures = fixtures;
+    }
+
+    public ArrayList<Game> getAllGames() {
+        return allGames;
+    }
+
+    public void setAllGames(ArrayList<Game> allGames) {
+        this.allGames = allGames;
+    }
+
+    public int getGameWeek() {
+        return gameWeek;
+    }
+
+    public void setGameWeek(int gameWeek) {
+        this.gameWeek = gameWeek;
+    }
+
+
+
+
+
 
     public void generateFixtures(){
         for (int week = 0; week < 38; week++){
@@ -56,18 +104,15 @@ public class PremierLeague {
             for (int game = 0; game < 10; game++){
                 int num = (int) (Math.random() * allGames.size());;
                 Game randomGame = allGames.get(num);
-                if (teamsPlayedThisWeek.size() > 0){
-                    for (int team = 0; team < teamsPlayedThisWeek.size(); team++){
-                        if (randomGame.contains(teamsPlayedThisWeek.get(team))){
-                            num = (int) (Math.random() * allGames.size());;
-                            randomGame = allGames.get(num);
-                        }
-                    }
+                while (randomGame.contains(teamsPlayedThisWeek)){
+                    num = (int) (Math.random() * allGames.size());;
+                    randomGame = allGames.get(num);
                 }
                 teamsPlayedThisWeek.add(randomGame.getHome());
                 teamsPlayedThisWeek.add(randomGame.getAway());
                 fixtures[week][game] = randomGame;
                 allGames.remove(num);
+                System.out.println((game + 1) + ". " +  randomGame);
             }
         }
 
@@ -103,5 +148,19 @@ public class PremierLeague {
     public void swap(int index1, int index2){
         Club temp = table[index1];
 
+    }
+
+    public void simulateGameWeek(){
+        for (Game game : fixtures[gameWeek]){
+            game.simulateGame();
+        }
+        gameWeek++;
+    }
+
+    public Club get(String club){
+        for (Club team : table){
+            if (team.getName().equals(club)) return team;
+        }
+        return null;
     }
 }

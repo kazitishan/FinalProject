@@ -1,8 +1,17 @@
+import java.util.ArrayList;
+
 public class Game {
     private Club home;
     private Club away;
     private int homeGoals;
     private int awayGoals;
+
+    public Game(){
+        home = null;
+        away = null;
+        homeGoals = 0;
+        awayGoals = 0;
+    }
 
     public Game(Club home, Club away){
         this.home = home;
@@ -57,6 +66,14 @@ public class Game {
 
     public String toString(){
         return home.getName() + " vs. " + away.getName();
+    }
+
+    public boolean contains(ArrayList<Club> teams){
+        for (Club team : teams){
+            if (team.getName().equals(home.getName())) return true;
+            if (team.getName().equals(away.getName())) return true;
+        }
+        return false;
     }
 
     public boolean contains(Club team){
