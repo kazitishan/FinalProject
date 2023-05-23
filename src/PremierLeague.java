@@ -108,20 +108,18 @@ public class PremierLeague {
                 teamsNotPlayedThisWeek.add(c);
             }
             for (int game = 0; game < 10; game++){
-                // getting all possible games
+                // getting all possible games based on the teams that have not played this week yet
                 for (Game g : allGames){
                     if (g.contains(teamsNotPlayedThisWeek)){
                         possibleGames.add(g);
                     }
                 }
+
+                // getting a random game from the possible games
                 int num = (int) (Math.random() * possibleGames.size());;
                 Game randomGame = possibleGames.get(num);
 
-                while (!randomGame.contains(teamsNotPlayedThisWeek)){
-                    num = (int) (Math.random() * possibleGames.size());;
-                    randomGame = possibleGames.get(num);
-                }
-
+                // removing the teams that are in the game from the teams that have not played this week
                 teamsNotPlayedThisWeek.remove(randomGame.getHome());
                 teamsNotPlayedThisWeek.remove(randomGame.getAway());
                 fixtures[week][game] = randomGame;
@@ -130,15 +128,19 @@ public class PremierLeague {
             }
         }
 
-        for (int row = 0; row < fixtures.length; row++){
-            System.out.println("Game week " + (row + 1));
-            for (int col = 0; col < fixtures[0].length; col++){
-                System.out.println(fixtures[row][col].toString());
-            }
-            System.out.println();
+        for (Game g : allGames){
+            System.out.println(g);
         }
 
-        System.out.println(allGames.size());
+//        for (int row = 0; row < fixtures.length; row++){
+//            System.out.println("Game week " + (row + 1));
+//            for (int col = 0; col < fixtures[0].length; col++){
+//                System.out.println(fixtures[row][col].toString());
+//            }
+//            System.out.println();
+//        }
+//
+//        System.out.println(allGames.size());
     }
 
     public void sortTable(){
