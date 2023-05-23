@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Club implements Comparable{
+public class Club{
     private String name;
     private int points;
     private int wins;
@@ -88,11 +88,8 @@ public class Club implements Comparable{
         loses++;
     }
 
-    @Override
-    public int compareTo(Object team) {
-        if (team instanceof Club){
-
-        }
-        return 0;
+    public boolean equals(Club team) {
+        if (team.getName().equals(name)) return true;
+        return false;
     }
 }

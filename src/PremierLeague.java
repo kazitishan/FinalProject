@@ -100,19 +100,33 @@ public class PremierLeague {
 
     public void generateFixtures(){
         for (int week = 0; week < 38; week++){
+            System.out.println("GAME WEEK " + (week + 1));
             ArrayList<Club> teamsPlayedThisWeek = new ArrayList<Club>();
+            ArrayList<Club> teamsNotPlayedThisWeek = new ArrayList<Club>();
+            ArrayList<Game> possibleGames = new ArrayList<Game>();
+            for (Club c : table){
+                teamsNotPlayedThisWeek.add(c);
+            }
             for (int game = 0; game < 10; game++){
-                int num = (int) (Math.random() * allGames.size());;
-                Game randomGame = allGames.get(num);
-                while (randomGame.contains(teamsPlayedThisWeek)){
-                    num = (int) (Math.random() * allGames.size());;
-                    randomGame = allGames.get(num);
+                // getting all possible games
+                for (Game g : allGames){
+                    if (g.contains(teamsNotPlayedThisWeek)){
+                        possibleGames.add(g);
+                    }
                 }
-                teamsPlayedThisWeek.add(randomGame.getHome());
-                teamsPlayedThisWeek.add(randomGame.getAway());
+                int num = (int) (Math.random() * possibleGames.size());;
+                Game randomGame = possibleGames.get(num);
+
+                while (!randomGame.contains(teamsNotPlayedThisWeek)){
+                    num = (int) (Math.random() * possibleGames.size());;
+                    randomGame = possibleGames.get(num);
+                }
+
+                teamsNotPlayedThisWeek.remove(randomGame.getHome());
+                teamsNotPlayedThisWeek.remove(randomGame.getAway());
                 fixtures[week][game] = randomGame;
-                allGames.remove(num);
-                System.out.println((game + 1) + ". " +  randomGame);
+                allGames.remove(randomGame);
+                System.out.println((game + 1) + ". " +  randomGame + " " + teamsNotPlayedThisWeek.size() + " " + allGames.size());
             }
         }
 

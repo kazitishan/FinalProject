@@ -64,6 +64,12 @@ public class Game {
         return null;
     }
 
+    public Club getPredictedScoreResult(int homeGoals, int awayGoals){
+        if (homeGoals > awayGoals) return home;
+        if (awayGoals > homeGoals) return away;
+        return null;
+    }
+
     public String toString(){
         return home.getName() + " vs. " + away.getName();
     }

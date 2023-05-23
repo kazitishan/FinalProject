@@ -26,8 +26,8 @@ public class Profile {
         for (Game g : epl.getFixtures()[epl.getGameWeek()]){
             if (g.contains(team)) game = g;
         }
-        // if winner is predicted
-        if (game.getWinner().getName().equals(winner.getName())){
+        // if result of the game is predicted
+        if (game.getWinner().equals(winner)){
             amount *= 1.5;
             bank.deposit(amount);
         }
@@ -40,6 +40,13 @@ public class Profile {
         for (Game g : epl.getFixtures()[epl.getGameWeek()]){
             if (g.contains(team)) game = g;
         }
-        if ()
+
+        Club winner = game.getPredictedScoreResult(homeGoals, awayGoals);
+
+        // if result of the game is predicted
+        if (game.getWinner().equals(winner)){
+            amount *= 2;
+            bank.deposit(amount);
+        }
     }
 }
