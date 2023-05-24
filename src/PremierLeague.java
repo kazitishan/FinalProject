@@ -21,8 +21,8 @@ public class PremierLeague {
                 "Crystal Palace",
                 "Everton",
                 "Fulham",
-                "Leicester City",
                 "Leeds United",
+                "Leicester City",
                 "Liverpool",
                 "Manchester City",
                 "Manchester United",
@@ -40,7 +40,7 @@ public class PremierLeague {
         allGames = new ArrayList<Game>();
         for (Club home : table){
             for (Club away : table){
-                if (!home.getName().equals(away.getName())){
+                if (!home.equals(away)){
                     allGames.add(new Game(home, away));
                 }
             }
@@ -102,15 +102,12 @@ public class PremierLeague {
         for (int week = 0; week < 38; week++){
             System.out.println("GAME WEEK " + (week + 1));
             ArrayList<Club> teamsPlayedThisWeek = new ArrayList<Club>();
-            ArrayList<Club> teamsNotPlayedThisWeek = new ArrayList<Club>();
-            ArrayList<Game> possibleGames = new ArrayList<Game>();
-            for (Club c : table){
-                teamsNotPlayedThisWeek.add(c);
-            }
+
             for (int game = 0; game < 10; game++){
+                ArrayList<Game> possibleGames = new ArrayList<Game>();
                 // getting all possible games based on the teams that have not played this week yet
                 for (Game g : allGames){
-                    if (g.contains(teamsNotPlayedThisWeek)){
+                    if (!g.contains(teamsPlayedThisWeek)){
                         possibleGames.add(g);
                     }
                 }
@@ -120,27 +117,20 @@ public class PremierLeague {
                 Game randomGame = possibleGames.get(num);
 
                 // removing the teams that are in the game from the teams that have not played this week
-                teamsNotPlayedThisWeek.remove(randomGame.getHome());
-                teamsNotPlayedThisWeek.remove(randomGame.getAway());
+                teamsPlayedThisWeek.add(randomGame.getHome());
+                teamsPlayedThisWeek.add(randomGame.getAway());
+
                 fixtures[week][game] = randomGame;
+                System.out.print(allGames.indexOf(randomGame) + " ");
                 allGames.remove(randomGame);
-                System.out.println((game + 1) + ". " +  randomGame + " " + teamsNotPlayedThisWeek.size() + " " + allGames.size());
+
+                System.out.println((game + 1) + ". " +  randomGame + " " + teamsPlayedThisWeek.size() + " " + possibleGames.size());
             }
         }
 
         for (Game g : allGames){
             System.out.println(g);
         }
-
-//        for (int row = 0; row < fixtures.length; row++){
-//            System.out.println("Game week " + (row + 1));
-//            for (int col = 0; col < fixtures[0].length; col++){
-//                System.out.println(fixtures[row][col].toString());
-//            }
-//            System.out.println();
-//        }
-//
-//        System.out.println(allGames.size());
     }
 
     public void sortTable(){

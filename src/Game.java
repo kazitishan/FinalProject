@@ -76,15 +76,15 @@ public class Game {
 
     public boolean contains(ArrayList<Club> teams){
         for (Club team : teams){
-            if (team.getName().equals(home.getName())) return true;
-            if (team.getName().equals(away.getName())) return true;
+            if (team.equals(home)) return true;
+            if (team.equals(away)) return true;
         }
         return false;
     }
 
     public boolean contains(Club team){
-        if (team.getName().equals(home.getName())) return true;
-        if (team.getName().equals(away.getName())) return true;
+        if (team.equals(home)) return true;
+        if (team.equals(away)) return true;
         return false;
     }
 }
