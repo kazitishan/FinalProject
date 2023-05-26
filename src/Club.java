@@ -1,4 +1,8 @@
-import java.util.ArrayList;
+import javax.imageio.ImageIO;
+import javax.swing.*;
+import java.awt.*;
+import java.io.File;
+import java.io.IOException;
 
 public class Club{
     private String name;
@@ -8,6 +12,7 @@ public class Club{
     private int loses;
     private int goalsScored;
     private int goalsConceded;
+    ImageIcon icon;
 
     public Club(String name){
         this.name = name;
@@ -15,6 +20,14 @@ public class Club{
         wins = 0;
         draws = 0;
         loses = 0;
+
+        // getting the icon for the club
+        try{
+            File iconFile = new File("src/Icons/" + name + ".png");
+            ImageIcon imageIcon = new ImageIcon(ImageIO.read(iconFile));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     // getter and setters:
@@ -70,6 +83,22 @@ public class Club{
 
     public int getGoalDifference(){
         return goalsScored - goalsConceded;
+    }
+
+    public void setGoalsScored(int goalsScored) {
+        this.goalsScored = goalsScored;
+    }
+
+    public void setGoalsConceded(int goalsConceded) {
+        this.goalsConceded = goalsConceded;
+    }
+
+    public ImageIcon getIcon() {
+        return icon;
+    }
+
+    public void setIcon(ImageIcon icon) {
+        this.icon = icon;
     }
 
     // methods:

@@ -5,19 +5,28 @@ public class Game {
     private Club away;
     private int homeGoals;
     private int awayGoals;
+    private boolean played;
 
     public Game(){
         home = null;
         away = null;
         homeGoals = 0;
         awayGoals = 0;
+        played = false;
     }
 
     public Game(Club home, Club away){
         this.home = home;
         this.away = away;
+        played = false;
+    }
+
+    public Game(String game){
+        home = new Club(game.substring(0,game.indexOf(" v ")));
+        away = new Club(game.substring(game.indexOf(" v ") + 3));
         homeGoals = 0;
         awayGoals = 0;
+        played = false;
     }
 
     public Club getHome() {
@@ -55,7 +64,7 @@ public class Game {
     public void simulateGame(){
         homeGoals = (int) (Math.random() * 8);
         awayGoals = (int) (Math.random() * 8);
-
+        played = true;
     }
 
     public Club getWinner(){
@@ -71,6 +80,9 @@ public class Game {
     }
 
     public String toString(){
+        if (played){
+            return home.getName() + " " + homeGoals + " - " + awayGoals + " " + away.getName();
+        }
         return home.getName() + " vs. " + away.getName();
     }
 

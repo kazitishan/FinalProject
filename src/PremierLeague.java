@@ -1,5 +1,6 @@
-import java.util.ArrayList;
-import java.util.Collections;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.*;
 
 public class PremierLeague {
     private Club[] table;
@@ -7,7 +8,7 @@ public class PremierLeague {
     private ArrayList<Game> allGames;
     private int gameWeek;
 
-    public PremierLeague(){
+    public PremierLeague() throws FileNotFoundException {
 
         // adding every club in the premier league into an array
         table = new Club[20];
@@ -98,39 +99,30 @@ public class PremierLeague {
 
 
 
-    public void generateFixtures(){
+    public void generateFixtures() throws FileNotFoundException {
+        File fixturesFile = new File("src/Fixtures.txt");
+        Scanner scan = new Scanner(fixturesFile);
+
         for (int week = 0; week < 38; week++){
-            System.out.println("GAME WEEK " + (week + 1));
-            ArrayList<Club> teamsPlayedThisWeek = new ArrayList<Club>();
-
             for (int game = 0; game < 10; game++){
-                ArrayList<Game> possibleGames = new ArrayList<Game>();
-                // getting all possible games based on the teams that have not played this week yet
-                for (Game g : allGames){
-                    if (!g.contains(teamsPlayedThisWeek)){
-                        possibleGames.add(g);
-                    }
-                }
-
-                // getting a random game from the possible games
-                int num = (int) (Math.random() * possibleGames.size());;
-                Game randomGame = possibleGames.get(num);
-
-                // removing the teams that are in the game from the teams that have not played this week
-                teamsPlayedThisWeek.add(randomGame.getHome());
-                teamsPlayedThisWeek.add(randomGame.getAway());
-
-                fixtures[week][game] = randomGame;
-                System.out.print(allGames.indexOf(randomGame) + " ");
-                allGames.remove(randomGame);
-
-                System.out.println((game + 1) + ". " +  randomGame + " " + teamsPlayedThisWeek.size() + " " + possibleGames.size());
+                fixtures[week][game] = new Game(scan.nextLine());
             }
         }
 
-        for (Game g : allGames){
-            System.out.println(g);
-        }
+        List<Game[]> fixturesList = Arrays.asList(fixtures);
+        Collections.shuffle(fixturesList);
+        fixtures = fixturesList.toArray(new Game[fixturesList.size()][]);
+
+        // printing the fixtures
+//        int week = 1;
+//        for (Game[] gameweek : fixtures){
+//            System.out.println("Gameweek " + week);
+//            for (Game game : gameweek){
+//                System.out.println(game);
+//            }
+//            week++;
+//            System.out.println();
+//        }
     }
 
     public void sortTable(){

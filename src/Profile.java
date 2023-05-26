@@ -1,3 +1,5 @@
+import java.io.FileNotFoundException;
+
 public class Profile {
     private String name;
     private Club team;
@@ -5,14 +7,14 @@ public class Profile {
     private PremierLeague epl;
 
 
-    public Profile(String name, String team){
+    public Profile(String name, String team) throws FileNotFoundException {
         epl = new PremierLeague();
         this.name = name;
         this.team = epl.get(team);
         bank = new BankAccount(name);
     }
 
-    public Profile(String name, Club team){
+    public Profile(String name, Club team) throws FileNotFoundException {
         epl = new PremierLeague();
         this.name = name;
         this.team = team;

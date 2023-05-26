@@ -1,0 +1,380 @@
+Arsenal v Wolverhampton Wanderers
+Aston Villa v West Ham United
+Bournemouth v Tottenham Hotspur
+Brentford v Southampton
+Brighton & Hove Albion v Nottingham Forest
+Chelsea v Newcastle United
+Crystal Palace v Manchester United
+Everton v Manchester City
+Fulham v Liverpool
+Leeds United v Leicester City
+Wolverhampton Wanderers v Leicester City
+Liverpool v Leeds United
+Manchester City v Fulham
+Manchester United v Everton
+Newcastle United v Crystal Palace
+Nottingham Forest v Chelsea
+Southampton v Brighton & Hove Albion
+Tottenham Hotspur v Brentford
+West Ham United v Bournemouth
+Arsenal v Aston Villa
+Aston Villa v Wolverhampton Wanderers
+Bournemouth v Arsenal
+Brentford v West Ham United
+Brighton & Hove Albion v Tottenham Hotspur
+Chelsea v Southampton
+Crystal Palace v Nottingham Forest
+Everton v Newcastle United
+Fulham v Manchester United
+Leeds United v Manchester City
+Leicester City v Liverpool
+Wolverhampton Wanderers v Liverpool
+Manchester City v Leicester City
+Manchester United v Leeds United
+Newcastle United v Fulham
+Nottingham Forest v Everton
+Southampton v Crystal Palace
+Tottenham Hotspur v Chelsea
+West Ham United v Brighton & Hove Albion
+Arsenal v Brentford
+Aston Villa v Bournemouth
+Bournemouth v Wolverhampton Wanderers
+Brentford v Aston Villa
+Brighton & Hove Albion v Arsenal
+Chelsea v West Ham United
+Crystal Palace v Tottenham Hotspur
+Everton v Southampton
+Fulham v Nottingham Forest
+Leeds United v Newcastle United
+Leicester City v Manchester United
+Liverpool v Manchester City
+Wolverhampton Wanderers v Manchester City
+Manchester United v Liverpool
+Newcastle United v Leicester City
+Nottingham Forest v Leeds United
+Southampton v Fulham
+Tottenham Hotspur v Everton
+West Ham United v Crystal Palace
+Arsenal v Chelsea
+Aston Villa v Brighton & Hove Albion
+Bournemouth v Brentford
+Brentford v Wolverhampton Wanderers
+Brighton & Hove Albion v Bournemouth
+Chelsea v Aston Villa
+Crystal Palace v Arsenal
+Everton v West Ham United
+Fulham v Tottenham Hotspur
+Leeds United v Southampton
+Leicester City v Nottingham Forest
+Liverpool v Newcastle United
+Manchester City v Manchester United
+Wolverhampton Wanderers v Manchester United
+Newcastle United v Manchester City
+Nottingham Forest v Liverpool
+Southampton v Leicester City
+Tottenham Hotspur v Leeds United
+West Ham United v Fulham
+Arsenal v Everton
+Aston Villa v Crystal Palace
+Bournemouth v Chelsea
+Brentford v Brighton & Hove Albion
+Brighton & Hove Albion v Wolverhampton Wanderers
+Chelsea v Brentford
+Crystal Palace v Bournemouth
+Everton v Aston Villa
+Fulham v Arsenal
+Leeds United v West Ham United
+Leicester City v Tottenham Hotspur
+Liverpool v Southampton
+Manchester City v Nottingham Forest
+Manchester United v Newcastle United
+Wolverhampton Wanderers v Newcastle United
+Nottingham Forest v Manchester United
+Southampton v Manchester City
+Tottenham Hotspur v Liverpool
+West Ham United v Leicester City
+Arsenal v Leeds United
+Aston Villa v Fulham
+Bournemouth v Everton
+Brentford v Crystal Palace
+Brighton & Hove Albion v Chelsea
+Chelsea v Wolverhampton Wanderers
+Crystal Palace v Brighton & Hove Albion
+Everton v Brentford
+Fulham v Bournemouth
+Leeds United v Aston Villa
+Leicester City v Arsenal
+Liverpool v West Ham United
+Manchester City v Tottenham Hotspur
+Manchester United v Southampton
+Newcastle United v Nottingham Forest
+Wolverhampton Wanderers v Nottingham Forest
+Southampton v Newcastle United
+Tottenham Hotspur v Manchester United
+West Ham United v Manchester City
+Arsenal v Liverpool
+Aston Villa v Leicester City
+Bournemouth v Leeds United
+Brentford v Fulham
+Brighton & Hove Albion v Everton
+Chelsea v Crystal Palace
+Crystal Palace v Wolverhampton Wanderers
+Everton v Chelsea
+Fulham v Brighton & Hove Albion
+Leeds United v Brentford
+Leicester City v Bournemouth
+Liverpool v Aston Villa
+Manchester City v Arsenal
+Manchester United v West Ham United
+Newcastle United v Tottenham Hotspur
+Nottingham Forest v Southampton
+Wolverhampton Wanderers v Southampton
+Tottenham Hotspur v Nottingham Forest
+West Ham United v Newcastle United
+Arsenal v Manchester United
+Aston Villa v Manchester City
+Bournemouth v Liverpool
+Brentford v Leicester City
+Brighton & Hove Albion v Leeds United
+Chelsea v Fulham
+Crystal Palace v Everton
+Everton v Wolverhampton Wanderers
+Fulham v Crystal Palace
+Leeds United v Chelsea
+Leicester City v Brighton & Hove Albion
+Liverpool v Brentford
+Manchester City v Bournemouth
+Manchester United v Aston Villa
+Newcastle United v Arsenal
+Nottingham Forest v West Ham United
+Southampton v Tottenham Hotspur
+Wolverhampton Wanderers v Tottenham Hotspur
+West Ham United v Southampton
+Arsenal v Nottingham Forest
+Aston Villa v Newcastle United
+Bournemouth v Manchester United
+Brentford v Manchester City
+Brighton & Hove Albion v Liverpool
+Chelsea v Leicester City
+Crystal Palace v Leeds United
+Everton v Fulham
+Fulham v Wolverhampton Wanderers
+Leeds United v Everton
+Leicester City v Crystal Palace
+Liverpool v Chelsea
+Manchester City v Brighton & Hove Albion
+Manchester United v Brentford
+Newcastle United v Bournemouth
+Nottingham Forest v Aston Villa
+Southampton v Arsenal
+Tottenham Hotspur v West Ham United
+Wolverhampton Wanderers v West Ham United
+Arsenal v Tottenham Hotspur
+Aston Villa v Southampton
+Bournemouth v Nottingham Forest
+Brentford v Newcastle United
+Brighton & Hove Albion v Manchester United
+Chelsea v Manchester City
+Crystal Palace v Liverpool
+Everton v Leicester City
+Fulham v Leeds United
+Leeds United v Wolverhampton Wanderers
+Leicester City v Fulham
+Liverpool v Everton
+Manchester City v Crystal Palace
+Manchester United v Chelsea
+Newcastle United v Brighton & Hove Albion
+Nottingham Forest v Brentford
+Southampton v Bournemouth
+Tottenham Hotspur v Aston Villa
+West Ham United v Arsenal
+Wolverhampton Wanderers v Leeds United
+Fulham v Leicester City
+Everton v Liverpool
+Crystal Palace v Manchester City
+Chelsea v Manchester United
+Brighton & Hove Albion v Newcastle United
+Brentford v Nottingham Forest
+Bournemouth v Southampton
+Aston Villa v Tottenham Hotspur
+Arsenal v West Ham United
+West Ham United v Wolverhampton Wanderers
+Tottenham Hotspur v Arsenal
+Southampton v Aston Villa
+Nottingham Forest v Bournemouth
+Newcastle United v Brentford
+Manchester United v Brighton & Hove Albion
+Manchester City v Chelsea
+Liverpool v Crystal Palace
+Leicester City v Everton
+Leeds United v Fulham
+Wolverhampton Wanderers v Fulham
+Everton v Leeds United
+Crystal Palace v Leicester City
+Chelsea v Liverpool
+Brighton & Hove Albion v Manchester City
+Brentford v Manchester United
+Bournemouth v Newcastle United
+Aston Villa v Nottingham Forest
+Arsenal v Southampton
+West Ham United v Tottenham Hotspur
+Tottenham Hotspur v Wolverhampton Wanderers
+Southampton v West Ham United
+Nottingham Forest v Arsenal
+Newcastle United v Aston Villa
+Manchester United v Bournemouth
+Manchester City v Brentford
+Liverpool v Brighton & Hove Albion
+Leicester City v Chelsea
+Leeds United v Crystal Palace
+Fulham v Everton
+Wolverhampton Wanderers v Everton
+Crystal Palace v Fulham
+Chelsea v Leeds United
+Brighton & Hove Albion v Leicester City
+Brentford v Liverpool
+Bournemouth v Manchester City
+Aston Villa v Manchester United
+Arsenal v Newcastle United
+West Ham United v Nottingham Forest
+Tottenham Hotspur v Southampton
+Southampton v Wolverhampton Wanderers
+Nottingham Forest v Tottenham Hotspur
+Newcastle United v West Ham United
+Manchester United v Arsenal
+Manchester City v Aston Villa
+Liverpool v Bournemouth
+Leicester City v Brentford
+Leeds United v Brighton & Hove Albion
+Fulham v Chelsea
+Everton v Crystal Palace
+Wolverhampton Wanderers v Crystal Palace
+Chelsea v Everton
+Brighton & Hove Albion v Fulham
+Brentford v Leeds United
+Bournemouth v Leicester City
+Aston Villa v Liverpool
+Arsenal v Manchester City
+West Ham United v Manchester United
+Tottenham Hotspur v Newcastle United
+Southampton v Nottingham Forest
+Nottingham Forest v Wolverhampton Wanderers
+Newcastle United v Southampton
+Manchester United v Tottenham Hotspur
+Manchester City v West Ham United
+Liverpool v Arsenal
+Leicester City v Aston Villa
+Leeds United v Bournemouth
+Fulham v Brentford
+Everton v Brighton & Hove Albion
+Crystal Palace v Chelsea
+Wolverhampton Wanderers v Chelsea
+Brighton & Hove Albion v Crystal Palace
+Brentford v Everton
+Bournemouth v Fulham
+Aston Villa v Leeds United
+Arsenal v Leicester City
+West Ham United v Liverpool
+Tottenham Hotspur v Manchester City
+Southampton v Manchester United
+Nottingham Forest v Newcastle United
+Newcastle United v Wolverhampton Wanderers
+Manchester United v Nottingham Forest
+Manchester City v Southampton
+Liverpool v Tottenham Hotspur
+Leicester City v West Ham United
+Leeds United v Arsenal
+Fulham v Aston Villa
+Everton v Bournemouth
+Crystal Palace v Brentford
+Chelsea v Brighton & Hove Albion
+Wolverhampton Wanderers v Brighton & Hove Albion
+Brentford v Chelsea
+Bournemouth v Crystal Palace
+Aston Villa v Everton
+Arsenal v Fulham
+West Ham United v Leeds United
+Tottenham Hotspur v Leicester City
+Southampton v Liverpool
+Nottingham Forest v Manchester City
+Newcastle United v Manchester United
+Manchester United v Wolverhampton Wanderers
+Manchester City v Newcastle United
+Liverpool v Nottingham Forest
+Leicester City v Southampton
+Leeds United v Tottenham Hotspur
+Fulham v West Ham United
+Everton v Arsenal
+Crystal Palace v Aston Villa
+Chelsea v Bournemouth
+Brighton & Hove Albion v Brentford
+Wolverhampton Wanderers v Brentford
+Bournemouth v Brighton & Hove Albion
+Aston Villa v Chelsea
+Arsenal v Crystal Palace
+West Ham United v Everton
+Tottenham Hotspur v Fulham
+Southampton v Leeds United
+Nottingham Forest v Leicester City
+Newcastle United v Liverpool
+Manchester United v Manchester City
+Manchester City v Wolverhampton Wanderers
+Liverpool v Manchester United
+Leicester City v Newcastle United
+Leeds United v Nottingham Forest
+Fulham v Southampton
+Everton v Tottenham Hotspur
+Crystal Palace v West Ham United
+Chelsea v Arsenal
+Brighton & Hove Albion v Aston Villa
+Brentford v Bournemouth
+Wolverhampton Wanderers v Bournemouth
+Aston Villa v Brentford
+Arsenal v Brighton & Hove Albion
+West Ham United v Chelsea
+Tottenham Hotspur v Crystal Palace
+Southampton v Everton
+Nottingham Forest v Fulham
+Newcastle United v Leeds United
+Manchester United v Leicester City
+Manchester City v Liverpool
+Liverpool v Wolverhampton Wanderers
+Leicester City v Manchester City
+Leeds United v Manchester United
+Fulham v Newcastle United
+Everton v Nottingham Forest
+Crystal Palace v Southampton
+Chelsea v Tottenham Hotspur
+Brighton & Hove Albion v West Ham United
+Brentford v Arsenal
+Bournemouth v Aston Villa
+Wolverhampton Wanderers v Aston Villa
+Arsenal v Bournemouth
+West Ham United v Brentford
+Tottenham Hotspur v Brighton & Hove Albion
+Southampton v Chelsea
+Nottingham Forest v Crystal Palace
+Newcastle United v Everton
+Manchester United v Fulham
+Manchester City v Leeds United
+Liverpool v Leicester City
+Leicester City v Wolverhampton Wanderers
+Leeds United v Liverpool
+Fulham v Manchester City
+Everton v Manchester United
+Crystal Palace v Newcastle United
+Chelsea v Nottingham Forest
+Brighton & Hove Albion v Southampton
+Brentford v Tottenham Hotspur
+Bournemouth v West Ham United
+Aston Villa v Arsenal
+Wolverhampton Wanderers v Arsenal
+West Ham United v Aston Villa
+Tottenham Hotspur v Bournemouth
+Southampton v Brentford
+Nottingham Forest v Brighton & Hove Albion
+Newcastle United v Chelsea
+Manchester United v Crystal Palace
+Manchester City v Everton
+Liverpool v Fulham
+Leicester City v Leeds United
