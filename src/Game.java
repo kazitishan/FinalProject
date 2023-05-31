@@ -65,6 +65,19 @@ public class Game {
         homeGoals = (int) (Math.random() * 8);
         awayGoals = (int) (Math.random() * 8);
         played = true;
+
+        if (homeGoals > awayGoals){
+            home.win();
+            away.lose();
+        }
+        else if (awayGoals > homeGoals){
+            away.win();
+            home.lose();
+        }
+        else {
+            home.draw();
+            away.draw();
+        }
     }
 
     public Club getWinner(){

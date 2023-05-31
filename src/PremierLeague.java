@@ -106,6 +106,14 @@ public class PremierLeague {
         for (int week = 0; week < 38; week++){
             for (int game = 0; game < 10; game++){
                 fixtures[week][game] = new Game(scan.nextLine());
+                for (int team = 0; team < table.length; team++){
+                    if (table[team].equals(fixtures[week][game].getHome())){
+                        fixtures[week][game].setHome(table[team]);
+                    }
+                    if (table[team].equals(fixtures[week][game].getAway())){
+                        fixtures[week][game].setAway(table[team]);
+                    }
+                }
             }
         }
 
@@ -126,25 +134,18 @@ public class PremierLeague {
     }
 
     public void sortTable(){
-        while (inOrder() == false){
-            for (int team = 0; team < table.length; team++){
-                Club current;
-            }
-        }
-    }
+        //table = sortedTable;
 
-    public boolean inOrder(){
-        for (int team = 0; team < table.length - 1; team++){
-            if (table[team].getPoints() < table[team + 1].getPoints()) return false;
-            if (table[team].getPoints() == table[team + 1].getPoints()){
-                if (table[team].getGoalDifference() < table[team + 1].getGoalDifference()) return false;
-            }
-        }
-        return true;
-    }
+        ArrayList<Club> tempTable = new ArrayList<>(Arrays.asList(table));
+        ArrayList<Club> sortedTable = new ArrayList<Club>();
 
-    public void swap(int index1, int index2){
-        Club temp = table[index1];
+        Club highest = ;
+        for (int team = 0; team < tempTable.size(); team++){
+            if (tempTable.get(team).getPoints() > highest.getPoints()){
+                highest
+            }
+
+        }
 
     }
 
@@ -153,6 +154,13 @@ public class PremierLeague {
             game.simulateGame();
         }
         gameWeek++;
+        sortTable();
+    }
+
+    public void simulateSeason(){
+        for (int i = 0; i < 38; i++){
+            simulateGameWeek();
+        }
     }
 
     public Club get(String club){

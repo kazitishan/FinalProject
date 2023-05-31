@@ -16,7 +16,7 @@ public class Test {
 //        frame.pack();
 //        frame.setVisible(true);
         PremierLeague epl = new PremierLeague();
-        epl.simulateGameWeek();
+        epl.simulateSeason();
         int week = 1;
         for (Game[] gameweek : epl.getFixtures()){
             System.out.println("Gameweek " + week);
@@ -25,6 +25,10 @@ public class Test {
             }
             week++;
             System.out.println();
+        }
+
+        for (Club team : epl.getTable()){
+            System.out.println(team.getName() + " " + team.getPoints());
         }
     }
 }

@@ -14,6 +14,14 @@ public class Club{
     private int goalsConceded;
     ImageIcon icon;
 
+    public Club(){
+        this.name = "";
+        points = 0;
+        wins = 0;
+        draws = 0;
+        loses = 0;
+    }
+
     public Club(String name){
         this.name = name;
         points = 0;
@@ -112,6 +120,8 @@ public class Club{
         points += 1;
         draws++;
     }
+
+
 
     public void lose(){
         loses++;
