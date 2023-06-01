@@ -21,6 +21,48 @@ public class Profile {
         bank = new BankAccount(name);
     }
 
+    public Profile(String name) throws FileNotFoundException {
+        epl = new PremierLeague();
+        this.name = name;
+        bank = new BankAccount(name);
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Club getTeam() {
+        return team;
+    }
+
+    public void setTeam(Club team) {
+        this.team = team;
+    }
+
+    public BankAccount getBank() {
+        return bank;
+    }
+
+    public void setBank(BankAccount bank) {
+        this.bank = bank;
+    }
+
+    public PremierLeague getEpl() {
+        return epl;
+    }
+
+    public void setEpl(PremierLeague epl) {
+        this.epl = epl;
+    }
+
+    public void setFavoriteTeam(String team){
+        this.team = epl.get(team);
+    }
+
     public void betOnGame(double amount, Club winner){
         bank.withdraw(amount);
         epl.simulateGameWeek();

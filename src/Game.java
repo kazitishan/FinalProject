@@ -66,6 +66,12 @@ public class Game {
         awayGoals = (int) (Math.random() * 8);
         played = true;
 
+        home.addGoalsScored(homeGoals);
+        away.addGoalsScored(awayGoals);
+
+        home.addGoalsConceded(awayGoals);
+        away.addGoalsConceded(homeGoals);
+
         if (homeGoals > awayGoals){
             home.win();
             away.lose();

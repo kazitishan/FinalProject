@@ -134,19 +134,23 @@ public class PremierLeague {
     }
 
     public void sortTable(){
-        //table = sortedTable;
-
         ArrayList<Club> tempTable = new ArrayList<>(Arrays.asList(table));
-        ArrayList<Club> sortedTable = new ArrayList<Club>();
+        Club[] sortedTable = new Club[20];
 
-        Club highest = ;
-        for (int team = 0; team < tempTable.size(); team++){
-            if (tempTable.get(team).getPoints() > highest.getPoints()){
-                highest
+        for (int i = 0; i < 20; i++){
+            Club highest = tempTable.get(0) ;
+            for (int team = 0; team < tempTable.size(); team++){
+                if (tempTable.get(team).getPoints() > highest.getPoints()){
+                    highest = tempTable.get(team);
+                }
             }
-
+            tempTable.remove(highest);
+            sortedTable[i] = highest;
         }
 
+
+
+        table = sortedTable;
     }
 
     public void simulateGameWeek(){

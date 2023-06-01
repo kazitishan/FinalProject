@@ -121,10 +121,16 @@ public class Club{
         draws++;
     }
 
-
-
     public void lose(){
         loses++;
+    }
+
+    public void addGoalsScored(int goals){
+        goalsScored += goals;
+    }
+
+    public void addGoalsConceded(int goals){
+        goalsConceded += goals;
     }
 
     public boolean equals(Club team) {

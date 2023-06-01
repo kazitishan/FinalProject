@@ -27,8 +27,11 @@ public class Test {
             System.out.println();
         }
 
+        int position = 1;
         for (Club team : epl.getTable()){
-            System.out.println(team.getName() + " " + team.getPoints());
+            System.out.print(position + ". ");
+            System.out.println(team.getName() + " " + team.getPoints() + " " +team.getGoalDifference());
+            position++;
         }
     }
 }
