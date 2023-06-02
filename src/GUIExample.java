@@ -44,11 +44,14 @@ public class GUIExample {
         JButton[] buttons = new JButton[20];
         Profile user = new Profile(nameField.getText());
         for (int i = 0; i < 20; i++) {
-            buttons[i] = new JButton(user.getEpl().getTable()[i].getName());
+            String name = user.getEpl().getTable()[i].getName();
+            buttons[i] = new JButton(name);
             buttons[i].addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
                     CardLayout cardLayout = (CardLayout) mainPanel.getLayout();
                     cardLayout.show(mainPanel, "BlankPanel");
+                    instructionLabel.setText(name);
+                    user.setFavoriteTeam(name);
                 }
             });
             buttonPanel.add(buttons[i]);
