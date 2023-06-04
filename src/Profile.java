@@ -1,4 +1,5 @@
 import java.io.FileNotFoundException;
+import java.text.DecimalFormat;
 
 public class Profile {
     private String name;
@@ -92,5 +93,10 @@ public class Profile {
             amount *= 2;
             bank.deposit(amount);
         }
+    }
+
+    public double getBalance(){
+        String balance = String.format("%.2f", bank.getBalance());
+        return bank.getBalance();
     }
 }

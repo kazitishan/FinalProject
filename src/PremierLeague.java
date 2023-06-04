@@ -102,10 +102,12 @@ public class PremierLeague {
     public void generateFixtures() throws FileNotFoundException {
         File fixturesFile = new File("src/Fixtures.txt");
         Scanner scan = new Scanner(fixturesFile);
+        String[] allGamesArray = scan.nextLine().split(",");
+        ArrayList<String> allGames = new ArrayList<>(Arrays.asList(allGamesArray));
 
         for (int week = 0; week < 38; week++){
             for (int game = 0; game < 10; game++){
-                fixtures[week][game] = new Game(scan.nextLine());
+                fixtures[week][game] = new Game(allGames.get(0));
                 for (int team = 0; team < table.length; team++){
                     if (table[team].equals(fixtures[week][game].getHome())){
                         fixtures[week][game].setHome(table[team]);
@@ -114,6 +116,7 @@ public class PremierLeague {
                         fixtures[week][game].setAway(table[team]);
                     }
                 }
+                allGames.remove(0);
             }
         }
 
