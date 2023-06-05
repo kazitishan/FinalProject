@@ -191,9 +191,12 @@ public class GUIExample {
         rightGbc.gridx = 0;
         rightGbc.gridy = GridBagConstraints.RELATIVE;
 
+        JLabel[] gameLabels = new JLabel[10];
+
         for (int i = 0; i < 10; i++) {
             JLabel label = new JLabel(user.getCurrentGameWeek()[i].toString());
             rightPanel.add(label, rightGbc);
+            gameLabels[i] = label;
         }
 
         // Calculate the width of the panels based on the frame size
@@ -256,6 +259,40 @@ public class GUIExample {
         cardLayout.show(mainPanel, "TablePanel");
         frame.revalidate();
         frame.repaint();
+
+        // Button actions
+        win.addActionListener(e -> {
+            if (!numberField.getText().isEmpty()) {
+                user.betOnGame(Double.parseDouble(numberField.getText()), user.getTeam());
+                fillTable();
+                instructionLabel.setText(user.getName() + " - " + user.getTeam().getName() + " - " + user.getBalance());
+                homeVsAwayLabel.setText(user.getCurrentGame().toString());
+
+                for (int i = 0; i < 10; i++){
+                    gameLabels[i].setText(user.getCurrentGameWeek()[i].toString());
+                }
+            }
+        });
+
+        draw.addActionListener(e -> {
+            if (!numberField.getText().isEmpty()) {
+                user.betOnGame(Double.parseDouble(numberField.getText()), null);
+                fillTable();
+                instructionLabel.setText(user.getName() + " - " + user.getTeam().getName() + " - " + user.getBalance());
+                homeVsAwayLabel.setText(user.getCurrentGame().toString());
+            }
+
+            for (int i = 0; i < 10; i++){
+                gameLabels[i].setText(user.getCurrentGameWeek()[i].toString());
+            }
+        });
+
+        loss.addActionListener(e -> {
+            if (!numberField.getText().isEmpty()) {
+                Club predictedWinner = new Club();
+
+            }
+        });
     }
 
 
@@ -278,6 +315,11 @@ public class GUIExample {
         }
     }
 
+    private void printAndClearTextField(JTextField textField) {
+        String content = textField.getText();
+        System.out.println(content);
+        textField.setText("");
+    }
 
     /**
      * The main entry point of the program.

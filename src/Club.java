@@ -134,6 +134,7 @@ public class Club{
     }
 
     public boolean equals(Club team) {
+        if (team == null) return false;
         if (team.getName().equals(name)) return true;
         return false;
     }

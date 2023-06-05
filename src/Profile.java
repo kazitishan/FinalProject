@@ -76,12 +76,15 @@ public class Profile {
     public void betOnGame(double amount, Club winner){
         bank.withdraw(amount);
         epl.simulateGameWeek();
-        Game game = new Game();
-        for (Game g : epl.getFixtures()[epl.getGameWeek()]){
-            if (g.contains(team)) game = g;
-        }
+        Game game = getCurrentGame();
         // if result of the game is predicted
-        if (game.getWinner().equals(winner)){
+        if (winner == null){
+            if (game.getWinner() == null){
+                amount *= 1.5;
+                bank.deposit(amount);
+            }
+        }
+        else if (winner.equals(game.getWinner())){
             amount *= 1.5;
             bank.deposit(amount);
         }
@@ -95,7 +98,7 @@ public class Profile {
         Club winner = game.getPredictedScoreResult(homeGoals, awayGoals);
 
         // if result of the game is predicted
-        if (game.getWinner().equals(winner)){
+        if (winner.equals(game.getWinner())){
             amount *= 2;
             bank.deposit(amount);
         }
