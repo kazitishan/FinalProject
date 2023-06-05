@@ -20,12 +20,20 @@ public class Profile {
         this.name = name;
         this.team = team;
         bank = new BankAccount(name);
+        bank.setBalance(100);
     }
 
     public Profile(String name) throws FileNotFoundException {
         epl = new PremierLeague();
         this.name = name;
         bank = new BankAccount(name);
+        bank.setBalance(100);
+    }
+
+    public Profile() throws FileNotFoundException {
+        epl = new PremierLeague();
+        bank = new BankAccount();
+        bank.setBalance(100);
     }
 
     public String getName() {
@@ -34,6 +42,7 @@ public class Profile {
 
     public void setName(String name) {
         this.name = name;
+        bank.setAccountHolder(name);
     }
 
     public Club getTeam() {
@@ -81,10 +90,7 @@ public class Profile {
     public void betOnGame(double amount, int homeGoals, int awayGoals){
         bank.withdraw(amount);
         epl.simulateGameWeek();
-        Game game = new Game();
-        for (Game g : epl.getFixtures()[epl.getGameWeek()]){
-            if (g.contains(team)) game = g;
-        }
+        Game game = getCurrentGame();
 
         Club winner = game.getPredictedScoreResult(homeGoals, awayGoals);
 
@@ -95,8 +101,21 @@ public class Profile {
         }
     }
 
-    public double getBalance(){
+    public String getBalance(){
         String balance = String.format("%.2f", bank.getBalance());
-        return bank.getBalance();
+        return "$" + bank.getBalance();
+    }
+
+    public Game getCurrentGame(){
+        Game game = new Game();
+        for (Game g : epl.getFixtures()[epl.getGameWeek()]){
+            if (g.contains(team)) game = g;
+        }
+        return game;
+    }
+
+    public Game[] getCurrentGameWeek(){
+        Game[] gameWeek = epl.getFixtures()[epl.getGameWeek()];
+        return gameWeek;
     }
 }

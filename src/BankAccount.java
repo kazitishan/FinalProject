@@ -5,6 +5,7 @@ public class BankAccount {
     public BankAccount(String name){
         accountHolder = name;
     }
+    public BankAccount(){accountHolder = null;}
 
     public String getAccountHolder() {
         return accountHolder;
