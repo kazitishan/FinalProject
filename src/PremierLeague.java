@@ -160,13 +160,13 @@ public class PremierLeague {
         for (Game game : fixtures[gameWeek]){
             game.simulateGame();
         }
-        gameWeek++;
         sortTable();
     }
 
     public void simulateSeason(){
         for (int i = 0; i < 38; i++){
             simulateGameWeek();
+            gameWeek++;
         }
     }
 
@@ -175,5 +175,9 @@ public class PremierLeague {
             if (team.getName().equals(club)) return team;
         }
         return null;
+    }
+
+    public void increaseGameWeek(){
+        gameWeek++;
     }
 }

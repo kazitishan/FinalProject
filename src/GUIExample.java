@@ -131,7 +131,7 @@ public class GUIExample {
 
         // Top panel with "matchweek" label
         JPanel topPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
-        JLabel matchweekLabel = new JLabel("Matchweek");
+        JLabel matchweekLabel = new JLabel("Matchweek " + (user.getEpl().getGameWeek() + 1));
         topPanel.add(matchweekLabel);
         tablePanel.add(topPanel, BorderLayout.NORTH);
 
@@ -262,37 +262,65 @@ public class GUIExample {
 
         // Button actions
         win.addActionListener(e -> {
-            if (!numberField.getText().isEmpty()) {
-                user.betOnGame(Double.parseDouble(numberField.getText()), user.getTeam());
-                fillTable();
-                instructionLabel.setText(user.getName() + " - " + user.getTeam().getName() + " - " + user.getBalance());
-                homeVsAwayLabel.setText(user.getCurrentGame().toString());
+            if (user.getEpl().getGameWeek() <= 37 && !numberField.getText().isEmpty()) {
+                double betAmount = Double.parseDouble(numberField.getText());
+                if (betAmount <= user.getBalance()) {
+                    user.betOnGame(betAmount, user.getTeam());
+                    fillTable();
+                    instructionLabel.setText(user.getName() + " - " + user.getTeam().getName() + " - " + user.getBalance());
+                    homeVsAwayLabel.setText(user.getCurrentGame().toString());
+                    matchweekLabel.setText("Matchweek " + (user.getEpl().getGameWeek() + 1));
 
-                for (int i = 0; i < 10; i++){
-                    gameLabels[i].setText(user.getCurrentGameWeek()[i].toString());
+                    for (int i = 0; i < 10; i++) {
+                        gameLabels[i].setText(user.getCurrentGameWeek()[i].toString());
+                    }
                 }
             }
         });
 
         draw.addActionListener(e -> {
-            if (!numberField.getText().isEmpty()) {
-                user.betOnGame(Double.parseDouble(numberField.getText()), null);
-                fillTable();
-                instructionLabel.setText(user.getName() + " - " + user.getTeam().getName() + " - " + user.getBalance());
-                homeVsAwayLabel.setText(user.getCurrentGame().toString());
-            }
+            if (user.getEpl().getGameWeek() <= 37 && !numberField.getText().isEmpty()) {
+                double betAmount = Double.parseDouble(numberField.getText());
+                if (betAmount <= user.getBalance()) {
+                    user.betOnGame(betAmount, null);
+                    fillTable();
+                    instructionLabel.setText(user.getName() + " - " + user.getTeam().getName() + " - " + user.getBalance());
+                    homeVsAwayLabel.setText(user.getCurrentGame().toString());
+                    matchweekLabel.setText("Matchweek " + (user.getEpl().getGameWeek() + 1));
 
-            for (int i = 0; i < 10; i++){
-                gameLabels[i].setText(user.getCurrentGameWeek()[i].toString());
+                    for (int i = 0; i < 10; i++) {
+                        gameLabels[i].setText(user.getCurrentGameWeek()[i].toString());
+                    }
+                }
             }
         });
 
         loss.addActionListener(e -> {
-            if (!numberField.getText().isEmpty()) {
-                Club predictedWinner = new Club();
+            if (user.getEpl().getGameWeek() <= 37 && !numberField.getText().isEmpty()) {
+                double betAmount = Double.parseDouble(numberField.getText());
+                if (betAmount <= user.getBalance()) {
+                    Club predictedWinner;
+                    if (user.getCurrentGame().getHome().equals(user.getTeam())) {
+                        predictedWinner = user.getCurrentGame().getAway();
+                    } else {
+                        predictedWinner = user.getCurrentGame().getHome();
+                    }
 
+                    user.betOnGame(betAmount, predictedWinner);
+                    fillTable();
+                    instructionLabel.setText(user.getName() + " - " + user.getTeam().getName() + " - " + user.getBalance());
+                    homeVsAwayLabel.setText(user.getCurrentGame().toString());
+                    matchweekLabel.setText("Matchweek " + (user.getEpl().getGameWeek() + 1));
+
+                    for (int i = 0; i < 10; i++) {
+                        gameLabels[i].setText(user.getCurrentGameWeek()[i].toString());
+                    }
+                }
             }
         });
+
+
+
     }
 
 
@@ -313,12 +341,6 @@ public class GUIExample {
             tableCells[row][7].setText(info[position].getPoints() + "");
             position++;
         }
-    }
-
-    private void printAndClearTextField(JTextField textField) {
-        String content = textField.getText();
-        System.out.println(content);
-        textField.setText("");
     }
 
     /**

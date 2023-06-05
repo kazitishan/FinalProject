@@ -88,6 +88,7 @@ public class Profile {
             amount *= 1.5;
             bank.deposit(amount);
         }
+        epl.increaseGameWeek();
     }
 
     public void betOnGame(double amount, int homeGoals, int awayGoals){
@@ -104,9 +105,8 @@ public class Profile {
         }
     }
 
-    public String getBalance(){
-        String balance = String.format("%.2f", bank.getBalance());
-        return "$" + bank.getBalance();
+    public double getBalance(){
+        return bank.getBalance();
     }
 
     public Game getCurrentGame(){
