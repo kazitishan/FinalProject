@@ -105,8 +105,9 @@ public class Profile {
         }
     }
 
-    public double getBalance(){
-        return bank.getBalance();
+    public double getBalance() {
+        DecimalFormat decimalFormat = new DecimalFormat("#0.00");
+        return Double.parseDouble(decimalFormat.format(bank.getBalance()));
     }
 
     public Game getCurrentGame(){

@@ -2,9 +2,10 @@ import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.*;
-import java.io.FileNotFoundException;
+import java.io.*;
+import java.util.Scanner;
 
-public class GUIExample {
+public class KaziBetsGUI {
     private JFrame frame;
     private JPanel mainPanel;
     private JPanel namePanel;
@@ -21,7 +22,7 @@ public class GUIExample {
     private String userName;
     private Profile user;
 
-    public GUIExample() throws FileNotFoundException {
+    public KaziBetsGUI() throws FileNotFoundException {
         user = new Profile();
         initializeFrame();
         createMainPanel();
@@ -254,7 +255,7 @@ public class GUIExample {
         tableContentPanel.setPreferredSize(new Dimension(middlePanelWidth, tableContentPanel.getPreferredSize().height));
 
         mainPanel.add(tablePanel, "TablePanel");
-        instructionLabel.setText(user.getName() + " - " + user.getTeam().getName() + " - " + user.getBalance());
+        instructionLabel.setText(user.getName() + " - " + user.getTeam().getName() + " - $" + user.getBalance());
         CardLayout cardLayout = (CardLayout) mainPanel.getLayout();
         cardLayout.show(mainPanel, "TablePanel");
         frame.revalidate();
@@ -262,29 +263,74 @@ public class GUIExample {
 
         // Button actions
         win.addActionListener(e -> {
-            if (user.getEpl().getGameWeek() <= 37 && !numberField.getText().isEmpty()) {
+            if (user.getEpl().getGameWeek() <= 37 && isValidNumberField(numberField.getText())) {
                 double betAmount = Double.parseDouble(numberField.getText());
                 if (betAmount <= user.getBalance()) {
-                    user.betOnGame(betAmount, user.getTeam());
-                    fillTable();
-                    instructionLabel.setText(user.getName() + " - " + user.getTeam().getName() + " - " + user.getBalance());
                     homeVsAwayLabel.setText(user.getCurrentGame().toString());
                     matchweekLabel.setText("Matchweek " + (user.getEpl().getGameWeek() + 1));
-
                     for (int i = 0; i < 10; i++) {
                         gameLabels[i].setText(user.getCurrentGameWeek()[i].toString());
                     }
+                    user.betOnGame(betAmount, user.getTeam());
+                    fillTable();
+                    instructionLabel.setText(user.getName() + " - " + user.getTeam().getName() + " - $" + user.getBalance());
                 }
+            }
+            else if (user.getEpl().getGameWeek() == 38 || user.getBalance() == 0){
+                File highestScore = new File("src/HighestScore.txt");
+                Scanner scan = null;
+                try {
+                    scan = new Scanner(highestScore);
+                } catch (FileNotFoundException ex) {
+                    throw new RuntimeException(ex);
+                }
+
+                double profit = user.getBalance() - 100;
+
+                String line = scan.nextLine();
+                double highestProfit = 0;
+                if (line.equals("none")){
+                    highestProfit = profit;
+                    try {
+                        BufferedWriter writer = new BufferedWriter(new FileWriter(highestScore, false));
+                        writer.write(highestProfit + "");
+                        writer.close();
+                    } catch (IOException ex) {
+                        throw new RuntimeException(ex);
+                    }
+                }
+                else{
+                    highestProfit = Double.parseDouble(line);
+                }
+
+
+                if (profit > highestProfit) {
+                    highestProfit = profit;
+                    try {
+                        BufferedWriter writer = new BufferedWriter(new FileWriter(highestScore, false));
+                        writer.write(highestProfit + "");
+                        writer.close();
+                    } catch (IOException ex) {
+                        throw new RuntimeException(ex);
+                    }
+                }
+
+                bottomPanel.removeAll();
+                JLabel resultLabel = new JLabel("Profit: " + profit + " | Highest Profit: " + highestProfit);
+                resultLabel.setFont(new Font("Calibri", Font.BOLD, 16));
+                bottomPanel.add(resultLabel);
+                bottomPanel.revalidate();
+                bottomPanel.repaint();
             }
         });
 
         draw.addActionListener(e -> {
-            if (user.getEpl().getGameWeek() <= 37 && !numberField.getText().isEmpty()) {
+            if (user.getEpl().getGameWeek() <= 37 && isValidNumberField(numberField.getText())) {
                 double betAmount = Double.parseDouble(numberField.getText());
                 if (betAmount <= user.getBalance()) {
                     user.betOnGame(betAmount, null);
                     fillTable();
-                    instructionLabel.setText(user.getName() + " - " + user.getTeam().getName() + " - " + user.getBalance());
+                    instructionLabel.setText(user.getName() + " - " + user.getTeam().getName() + " - $" + user.getBalance());
                     homeVsAwayLabel.setText(user.getCurrentGame().toString());
                     matchweekLabel.setText("Matchweek " + (user.getEpl().getGameWeek() + 1));
 
@@ -293,10 +339,19 @@ public class GUIExample {
                     }
                 }
             }
+            else if (user.getEpl().getGameWeek() == 38 || user.getBalance() == 0){
+                bottomPanel.removeAll();
+                JLabel resultLabel = new JLabel("L loser!");
+                resultLabel.setFont(new Font("Calibri", Font.BOLD, 16));
+                resultLabel.setForeground(Color.RED);
+                bottomPanel.add(resultLabel);
+                bottomPanel.revalidate();
+                bottomPanel.repaint();
+            }
         });
 
         loss.addActionListener(e -> {
-            if (user.getEpl().getGameWeek() <= 37 && !numberField.getText().isEmpty()) {
+            if (user.getEpl().getGameWeek() <= 37 && isValidNumberField(numberField.getText())) {
                 double betAmount = Double.parseDouble(numberField.getText());
                 if (betAmount <= user.getBalance()) {
                     Club predictedWinner;
@@ -308,7 +363,7 @@ public class GUIExample {
 
                     user.betOnGame(betAmount, predictedWinner);
                     fillTable();
-                    instructionLabel.setText(user.getName() + " - " + user.getTeam().getName() + " - " + user.getBalance());
+                    instructionLabel.setText(user.getName() + " - " + user.getTeam().getName() + " - $" + user.getBalance());
                     homeVsAwayLabel.setText(user.getCurrentGame().toString());
                     matchweekLabel.setText("Matchweek " + (user.getEpl().getGameWeek() + 1));
 
@@ -317,10 +372,22 @@ public class GUIExample {
                     }
                 }
             }
+            else if (user.getEpl().getGameWeek() == 38 || user.getBalance() == 0){
+                bottomPanel.removeAll();
+                JLabel resultLabel = new JLabel("L loser!");
+                resultLabel.setFont(new Font("Calibri", Font.BOLD, 16));
+                resultLabel.setForeground(Color.RED);
+                bottomPanel.add(resultLabel);
+                bottomPanel.revalidate();
+                bottomPanel.repaint();
+            }
         });
 
+    }
 
-
+    private boolean isValidNumberField(String input) {
+        String decimalPattern = "\\d+(\\.\\d{1,2})?";
+        return input.matches(decimalPattern);
     }
 
 
@@ -343,15 +410,10 @@ public class GUIExample {
         }
     }
 
-    /**
-     * The main entry point of the program.
-     *
-     * @param args Command-line arguments.
-     */
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
             try {
-                new GUIExample();
+                new KaziBetsGUI();
             } catch (FileNotFoundException e) {
                 throw new RuntimeException(e);
             }

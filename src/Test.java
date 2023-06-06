@@ -3,18 +3,6 @@ import java.io.FileNotFoundException;
 
 public class Test {
     public static void main(String[] args) throws FileNotFoundException {
-//        JFrame frame = new JFrame("Image GUI Example");
-//        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//
-//
-//        JLabel imageLabel = new JLabel();
-//
-//        Club ex = new Club("Chelsea");
-//        ImageIcon x = new ImageIcon(String.valueOf(ex.getIcon()));
-//        frame.getContentPane().add(imageLabel);
-//
-//        frame.pack();
-//        frame.setVisible(true);
         PremierLeague epl = new PremierLeague();
         epl.simulateSeason();
         int week = 1;
