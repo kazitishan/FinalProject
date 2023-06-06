@@ -316,7 +316,7 @@ public class KaziBetsGUI {
                 }
 
                 bottomPanel.removeAll();
-                JLabel resultLabel = new JLabel("Profit: " + profit + " | Highest Profit: " + highestProfit);
+                JLabel resultLabel = new JLabel("Profit: $" + profit + " | Highest Profit: $" + highestProfit);
                 resultLabel.setFont(new Font("Calibri", Font.BOLD, 16));
                 bottomPanel.add(resultLabel);
                 bottomPanel.revalidate();
@@ -328,22 +328,58 @@ public class KaziBetsGUI {
             if (user.getEpl().getGameWeek() <= 37 && isValidNumberField(numberField.getText())) {
                 double betAmount = Double.parseDouble(numberField.getText());
                 if (betAmount <= user.getBalance()) {
-                    user.betOnGame(betAmount, null);
-                    fillTable();
-                    instructionLabel.setText(user.getName() + " - " + user.getTeam().getName() + " - $" + user.getBalance());
                     homeVsAwayLabel.setText(user.getCurrentGame().toString());
                     matchweekLabel.setText("Matchweek " + (user.getEpl().getGameWeek() + 1));
-
                     for (int i = 0; i < 10; i++) {
                         gameLabels[i].setText(user.getCurrentGameWeek()[i].toString());
                     }
+                    user.betOnGame(betAmount, user.getTeam());
+                    fillTable();
+                    instructionLabel.setText(user.getName() + " - " + user.getTeam().getName() + " - $" + user.getBalance());
                 }
             }
             else if (user.getEpl().getGameWeek() == 38 || user.getBalance() == 0){
+                File highestScore = new File("src/HighestScore.txt");
+                Scanner scan = null;
+                try {
+                    scan = new Scanner(highestScore);
+                } catch (FileNotFoundException ex) {
+                    throw new RuntimeException(ex);
+                }
+
+                double profit = user.getBalance() - 100;
+
+                String line = scan.nextLine();
+                double highestProfit = 0;
+                if (line.equals("none")){
+                    highestProfit = profit;
+                    try {
+                        BufferedWriter writer = new BufferedWriter(new FileWriter(highestScore, false));
+                        writer.write(highestProfit + "");
+                        writer.close();
+                    } catch (IOException ex) {
+                        throw new RuntimeException(ex);
+                    }
+                }
+                else{
+                    highestProfit = Double.parseDouble(line);
+                }
+
+
+                if (profit > highestProfit) {
+                    highestProfit = profit;
+                    try {
+                        BufferedWriter writer = new BufferedWriter(new FileWriter(highestScore, false));
+                        writer.write(highestProfit + "");
+                        writer.close();
+                    } catch (IOException ex) {
+                        throw new RuntimeException(ex);
+                    }
+                }
+
                 bottomPanel.removeAll();
-                JLabel resultLabel = new JLabel("L loser!");
+                JLabel resultLabel = new JLabel("Profit: $" + profit + " | Highest Profit: $" + highestProfit);
                 resultLabel.setFont(new Font("Calibri", Font.BOLD, 16));
-                resultLabel.setForeground(Color.RED);
                 bottomPanel.add(resultLabel);
                 bottomPanel.revalidate();
                 bottomPanel.repaint();
@@ -360,23 +396,58 @@ public class KaziBetsGUI {
                     } else {
                         predictedWinner = user.getCurrentGame().getHome();
                     }
-
-                    user.betOnGame(betAmount, predictedWinner);
-                    fillTable();
-                    instructionLabel.setText(user.getName() + " - " + user.getTeam().getName() + " - $" + user.getBalance());
                     homeVsAwayLabel.setText(user.getCurrentGame().toString());
                     matchweekLabel.setText("Matchweek " + (user.getEpl().getGameWeek() + 1));
-
                     for (int i = 0; i < 10; i++) {
                         gameLabels[i].setText(user.getCurrentGameWeek()[i].toString());
                     }
+                    user.betOnGame(betAmount, predictedWinner);
+                    fillTable();
+                    instructionLabel.setText(user.getName() + " - " + user.getTeam().getName() + " - $" + user.getBalance());
                 }
             }
             else if (user.getEpl().getGameWeek() == 38 || user.getBalance() == 0){
+                File highestScore = new File("src/HighestScore.txt");
+                Scanner scan = null;
+                try {
+                    scan = new Scanner(highestScore);
+                } catch (FileNotFoundException ex) {
+                    throw new RuntimeException(ex);
+                }
+
+                double profit = user.getBalance() - 100;
+
+                String line = scan.nextLine();
+                double highestProfit = 0;
+                if (line.equals("none")){
+                    highestProfit = profit;
+                    try {
+                        BufferedWriter writer = new BufferedWriter(new FileWriter(highestScore, false));
+                        writer.write(highestProfit + "");
+                        writer.close();
+                    } catch (IOException ex) {
+                        throw new RuntimeException(ex);
+                    }
+                }
+                else{
+                    highestProfit = Double.parseDouble(line);
+                }
+
+
+                if (profit > highestProfit) {
+                    highestProfit = profit;
+                    try {
+                        BufferedWriter writer = new BufferedWriter(new FileWriter(highestScore, false));
+                        writer.write(highestProfit + "");
+                        writer.close();
+                    } catch (IOException ex) {
+                        throw new RuntimeException(ex);
+                    }
+                }
+
                 bottomPanel.removeAll();
-                JLabel resultLabel = new JLabel("L loser!");
+                JLabel resultLabel = new JLabel("Profit: $" + profit + " | Highest Profit: $" + highestProfit);
                 resultLabel.setFont(new Font("Calibri", Font.BOLD, 16));
-                resultLabel.setForeground(Color.RED);
                 bottomPanel.add(resultLabel);
                 bottomPanel.revalidate();
                 bottomPanel.repaint();
